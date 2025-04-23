@@ -1,0 +1,33 @@
+//Count Largest Group
+//leetcode 1399
+
+class Solution {
+public:
+    int findsDigitSum(int n){
+        int s=0;
+        while(n>0){
+            int r=n%10;
+            s+=r;
+            n=n/10;
+        }
+        return s;
+    }
+    int countLargestGroup(int n) {
+        
+        unordered_map<int,int>mp;
+        int cnt=0;
+        int maxsize=0;
+        for(int i=1;i<=n;i++){
+            int digit=findsDigitSum(i);
+            mp[digit]++;
+        if(mp[digit]==maxsize){
+            cnt++;
+        }
+         else if(mp[digit]>maxsize){
+             maxsize=mp[digit];
+             cnt=1;
+            }
+        }
+        return cnt;
+    }
+};
