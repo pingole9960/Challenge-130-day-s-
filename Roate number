@@ -1,0 +1,19 @@
+//Roate no
+
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int k=sc.nextInt();
+		int countdigit=(int)Math.log10(n)+1;
+		//edge is k>n
+		k=k%countdigit;
+		int divisior=(int)Math.pow(10,k);
+		int rightmost=n%divisior;
+		int leftmost=n/divisior;
+		int ans=rightmost*(int)Math.pow(10,(countdigit-k))+leftmost;
+		System.out.println(ans);
+		
+	}
+}
