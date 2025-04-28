@@ -1,0 +1,31 @@
+/problem longest unique substring
+
+
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+	  String s="abcabcbb";
+	  int maxlen=0;
+	  Stack<Character> st=new Stack<>();
+	  for(int i=0;i<s.length();i++){
+	  	char ch=s.charAt(i);
+	  if(st.contains(ch)){
+			  	           while(st.peek()!=ch){
+			  	             st.pop();
+			  	           }
+			  	           if(!st.isEmpty())
+			  	               st.pop();
+			  	        
+	  }  
+			      			 
+			   st.push(ch);
+			   maxlen=Math.max(maxlen,st.size());
+			      		
+	  }
+			      			 	
+			      		
+			      		System.out.println(maxlen);
+	}
+}
